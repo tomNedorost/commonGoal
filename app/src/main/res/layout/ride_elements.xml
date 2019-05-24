@@ -36,16 +36,21 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
         <RatingBar
             android:id="@+id/ratingBar"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/rideTexts"
             android:numStars="4"
             android:stepSize="1"
             android:layout_centerVertical="true"
             android:layout_margin="5dp" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -81,6 +86,8 @@
             android:layout_toRightOf="@id/riderProfile"
             android:background="@color/colorPrimary"
             android:text="Anfragen" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

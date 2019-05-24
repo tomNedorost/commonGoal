@@ -26,6 +26,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_toRightOf="@id/playerOne"
+            android:src="@drawable/jahn_logo"
+            android:layout_marginHorizontal="10dp"
             android:id="@+id/logoOne"/>
 
         <TextView
@@ -33,12 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/logoOne"
             android:id="@+id/vs"
+            android:layout_marginHorizontal="10dp"
             android:text="vs."/>
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_toRightOf="@id/vs"
+            android:layout_marginHorizontal="10dp"
             android:id="@+id/logoTwo"/>
 
         <TextView
