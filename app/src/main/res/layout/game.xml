@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <ImageView
-        
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:layout_height="70dp"
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/gameTime"
         android:text="Header"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/gameTime">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerOne"
+            android:text="SSV Jahn"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/playerOne"
+            android:id="@+id/logoOne"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logoOne"
+            android:id="@+id/vs"
+            android:text="vs."/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/vs"
+            android:id="@+id/logoTwo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerTwo"
+            android:layout_toRightOf="@id/logoTwo"
+            android:text="SV Sandhausen"/>
+
+    </LinearLayout>
 
 </LinearLayout>

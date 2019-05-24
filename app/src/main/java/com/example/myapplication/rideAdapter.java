@@ -7,15 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class rideAdapter extends BaseAdapter {
     Context context;
-    String[] data;
+    String[] rideTime, ridePlace;
     private static LayoutInflater inflater = null;
 
-    public rideAdapter(Context context, String[] data) {
+    public rideAdapter(Context context, String[] rideTime, String[] ridePlace) {
         // TODO Auto-generated constructor stub
         this.context = context;
-        this.data = data;
+        this.rideTime = rideTime;
+        this.ridePlace = ridePlace;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -23,13 +26,13 @@ public class rideAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return data.length;
+        return ridePlace.length;
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return data[position];
+        return ridePlace[position];
     }
 
     @Override
@@ -44,8 +47,10 @@ public class rideAdapter extends BaseAdapter {
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.ride_elements, null);
-        TextView rideTime = (TextView) vi.findViewById(R.id.rideTime);
-        rideTime.setText(data[position]);
+        TextView rideTimeText = (TextView) vi.findViewById(R.id.rideTime);
+        TextView ridePlaceText = (TextView) vi.findViewById(R.id.ridePlace);
+        rideTimeText.setText(rideTime[position]);
+        ridePlaceText.setText(ridePlace[position]);
         return vi;
     }
 }

@@ -1,25 +1,18 @@
 package com.example.myapplication;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
+
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
-    public ListView listView, rideListView;
+    public ListView listView;
     
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,17 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listview);
         setHomeListView();
+
     }
 
     public void setHomeListView() {
-        listView.setAdapter(new gamesAdapter(this, new String[] { "data1",
-                "data2" }));
+        listView.setAdapter(new gamesAdapter(this, new String[] { "Sonntag 05.05.2019",
+                "Sonntag 19.05.2019" }, new String[] { "Jahn Regensburg", "Jahn Regensburg" },
+                new String[] { "FC Erzgebirge", "SV Sandhausen" }));
     }
 
     public void setRideList() {
         listView.setAdapter(new rideAdapter(this, new String[] { "14:30",
-                "16:00" }));
+                "16:00" }, new String[] { "Neutraubling", "Pentling" }));
     }
-
-
 }
