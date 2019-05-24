@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="136dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="date"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="117dp"
+        android:layout_height="42dp"
+        android:autofillHints="00:00"
+        android:ems="10"
+        android:inputType="time"
+        tools:ignore="LabelFor,MissingConstraints"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="253dp"
+        android:layout_height="47dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="118dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/start" />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="89dp"
+        android:layout_height="78dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="64dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="95dp"
+        android:layout_height="37dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="142dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@android:string/unknownName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="175dp"
+        android:layout_height="31dp"
+        android:text="Anzahl der Mitfahrer"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="94dp"
+        android:layout_height="28dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="253dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="365dp"
+        android:layout_height="41dp"
+        android:text="Ganze Strecke sehen"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hast du noch weitere Anmerkungen?"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="355dp" />
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_width="365dp"
+        android:layout_height="162dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="397dp" />
+
+</android.support.constraint.ConstraintLayout>

@@ -11,4 +11,5 @@
     <string name="add_comment">Kommentar hinzufügen</string>
     <string name="title_activity_new_ride">NewRide</string>
     <string name="stophint">Zwischenstopp hinzufügen</string>
+    <string name="start">Start</string>
 </resources>
