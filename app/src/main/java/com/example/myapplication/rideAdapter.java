@@ -44,8 +44,8 @@ public class rideAdapter extends BaseAdapter {
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.ride_elements, null);
-        //TextView text = (TextView) vi.findViewById(R.id.text);
-        //text.setText(data[position]);
+        TextView rideTime = (TextView) vi.findViewById(R.id.rideTime);
+        rideTime.setText(data[position]);
         return vi;
     }
 }
