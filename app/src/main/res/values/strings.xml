@@ -3,4 +3,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Tabelle</string>
     <string name="title_notifications">Meine Fahrten</string>
+    <string name="start">Start</string>
 </resources>
