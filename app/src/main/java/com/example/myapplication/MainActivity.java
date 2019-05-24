@@ -31,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_home);
                     listView.setVisibility(View.VISIBLE);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_tabel:
                     mTextMessage.setText(R.string.title_dashboard);
                     listView.setVisibility(View.GONE);
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_myRides:
                     mTextMessage.setText(R.string.title_notifications);
+                    setRideList();
                     return true;
             }
             return false;

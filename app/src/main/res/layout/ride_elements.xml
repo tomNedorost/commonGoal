@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/rideTexts">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rideTime"
+                android:layout_margin="5dp"
+                android:text="Freitag 26.06.2019"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ridePlace"
+                android:layout_marginLeft="5dp"
+                android:layout_below="@id/rideTime"
+                android:text="Neutraubling, Regensburg"/>
+
+
+        </LinearLayout>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rideTexts"
+            android:numStars="4"
+            android:stepSize="1"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/riderProfile"
+            android:layout_marginHorizontal="10dp"
+            android:layout_toRightOf="@id/ratingBar">
+
+            <ImageView
+                android:id="@+id/riderPicture"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/jahn_logo" />
+
+            <TextView
+                android:id="@+id/riderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/riderPicture"
+                android:layout_alignStart="@+id/riderProfile"
+                android:text="Lena, 22" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/requestButton"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/riderProfile"
+            android:background="@color/colorPrimary"
+            android:text="Anfragen" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
