@@ -28,15 +28,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    listView.setVisibility(View.VISIBLE);
+                    //listView.setVisibility(View.VISIBLE);
+                    setHomeListView();
                     return true;
                 case R.id.navigation_tabel:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    listView.setVisibility(View.GONE);
+                    //listView.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_myRides:
-                    mTextMessage.setText(R.string.title_notifications);
                     setRideList();
                     return true;
             }
@@ -53,14 +51,17 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         listView = (ListView) findViewById(R.id.listview);
+        setHomeListView();
+    }
+
+    public void setHomeListView() {
         listView.setAdapter(new gamesAdapter(this, new String[] { "data1",
                 "data2" }));
     }
 
     public void setRideList() {
-        rideListView = (ListView) findViewById(R.id.rideList);
-        listView.setAdapter(new gamesAdapter(this, new String[] { "data1",
-                "data2" }));
+        listView.setAdapter(new rideAdapter(this, new String[] { "14:30",
+                "16:00" }));
     }
 
 
