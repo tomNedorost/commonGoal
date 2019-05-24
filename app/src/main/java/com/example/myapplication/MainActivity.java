@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
-    public ListView listView;
+    public ListView listView, rideListView;
     
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         listView = (ListView) findViewById(R.id.listview);
+        listView.setAdapter(new gamesAdapter(this, new String[] { "data1",
+                "data2" }));
+    }
+
+    public void setRideList() {
+        rideListView = (ListView) findViewById(R.id.rideList);
         listView.setAdapter(new gamesAdapter(this, new String[] { "data1",
                 "data2" }));
     }
