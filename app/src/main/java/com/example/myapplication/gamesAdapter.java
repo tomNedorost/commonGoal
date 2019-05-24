@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +10,15 @@ import android.widget.TextView;
 
 public class gamesAdapter extends BaseAdapter {
     Context context;
-    String[] data;
+    String[] time, playerOne, playerTwo;
     private static LayoutInflater inflater = null;
 
-    public gamesAdapter(Context context, String[] data) {
+    public gamesAdapter(Context context, String[] gameTime, String[] playerOne, String[] playerTwo ) {
         // TODO Auto-generated constructor stub
         this.context = context;
-        this.data = data;
+        this.time = gameTime;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -23,13 +26,13 @@ public class gamesAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return data.length;
+        return time.length;
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return data[position];
+        return time[position];
     }
 
     @Override
@@ -44,8 +47,12 @@ public class gamesAdapter extends BaseAdapter {
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.game, null);
-        TextView text = (TextView) vi.findViewById(R.id.text);
-        text.setText(data[position]);
+        TextView gameTimeText = (TextView) vi.findViewById(R.id.gameTime);
+        TextView playerOneText = (TextView) vi.findViewById(R.id.playerOne);
+        TextView playerTwoText = (TextView) vi.findViewById(R.id.playerTwo);
+        gameTimeText.setText(time[position]);
+        playerOneText.setText(playerOne[position]);
+        playerTwoText.setText(playerTwo[position]);
         return vi;
     }
 }
