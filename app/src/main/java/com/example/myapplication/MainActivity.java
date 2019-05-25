@@ -1,34 +1,36 @@
 package com.example.myapplication;
-import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
-import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
-import android.view.MenuItem;
-
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String KEY_SUCCESS = "success";
+    private static final String KEY_DATA = "data";
+    private static final String KEY_DRIVER_ID = "id";
+    private static final String KEY_DRIVER_NAME = "date";
+    private static final String BASE_URL = "http://172.16.29.109:80/drivers/";
+    private ArrayList<HashMap<String, String>> driverList;
+
     private TextView mTextMessage;
     public ListView listView, ridesList;
     private TabAdapter adapter;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_tabel:
                     listView.setVisibility(View.GONE);
+                    new FetchMoviesAsyncTask().execute();
                     return true;
                 case R.id.navigation_myRides:
                     listView.setVisibility(View.VISIBLE);
@@ -92,5 +95,44 @@ public class MainActivity extends AppCompatActivity {
         ridesList = (ListView) findViewById(R.id.listview);
         ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
                 "16:00" }, new String[] { "Neutraubling", "Pentling" }));
+    }
+
+    /**
+     * Fetches the list of movies from the server
+     */
+    private class FetchMoviesAsyncTask extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            HttpJsonParser httpJsonParser = new HttpJsonParser();
+            JSONObject jsonObject = httpJsonParser.makeHttpRequest(
+                    BASE_URL + "fetch_all_drivers.php", "GET", null);
+            try {
+                int success = jsonObject.getInt(KEY_SUCCESS);
+                JSONArray drivers;
+                if (success == 1) {
+                    drivers = jsonObject.getJSONArray(KEY_DATA);
+                    Log.i("Drivers", String.valueOf(drivers.length()));
+                    //Iterate through the response and populate drivers list
+                    for (int i = 0; i < drivers.length(); i++) {
+                        JSONObject driver = drivers.getJSONObject(i);
+                        Integer driverId = driver.getInt(KEY_DRIVER_ID);
+                        String driverDate = driver.getString(KEY_DRIVER_NAME);
+                        HashMap<String, String> map = new HashMap<String, String>();
+                        map.put(KEY_DRIVER_ID, driverId.toString());
+                        map.put(KEY_DRIVER_NAME, driverDate);
+                        driverList.add(map);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 }
