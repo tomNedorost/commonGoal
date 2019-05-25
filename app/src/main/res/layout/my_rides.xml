@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <android.support.constraint.ConstraintLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabLayout"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical">
+
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Angebotene Fahrten" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mitfahrgelegenheiten" />
+
+    </android.support.design.widget.TabLayout>
+
+    <ListView
+        android:id="@+id/myRidesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tabLayout"
+        tools:ignore="MissingConstraints">
+
+    </ListView>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
