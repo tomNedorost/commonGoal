@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_DATA = "data";
     private static final String KEY_DRIVER_ID = "driver_id";
-    private static final String KEY_LOC = "loc";
-    private static final String KEY_VIA = "via";
-    private static final String KEY_SEATS = "seats";
+    private static final String KEY_LOC = "driver_loc";
+    private static final String KEY_VIA = "driver_via";
+    private static final String KEY_SEATS = "driver_seats";
+    private static final String KEY_TIME = "driver_time";
     private static final String KEY_DRIVER_DATE = "driver_date";
     private static final String BASE_URL = "http://172.16.29.109:80/drivers/";
     private ProgressDialog pDialog;
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
                 //Toast.makeText(getBaseContext(), items[i].getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), RideListActivity.class);
+                listView.getSelectedItem();
                 startActivity(intent);
             }
         });
@@ -176,9 +178,17 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject driver = drivers.getJSONObject(i);
                         Integer driverId = driver.getInt(KEY_DRIVER_ID);
                         String driverDate = (String) driver.get(KEY_DRIVER_DATE);
+                        String driverSeats = (String) driver.get(KEY_SEATS);
+                        String driverVia = (String) driver.get(KEY_VIA);
+                        String driverTime = (String) driver.get(KEY_TIME);
+                        String driverLoc = (String) driver.get(KEY_LOC);
                         HashMap<String, String> map = new HashMap<String, String>();
                         map.put(KEY_DRIVER_ID, driverId.toString());
                         map.put(KEY_DRIVER_DATE, driverDate);
+                        map.put(KEY_LOC, driverLoc);
+                        map.put(KEY_SEATS, driverSeats);
+                        map.put(KEY_VIA, driverVia);
+                        map.put(KEY_TIME, driverTime);
                         driverList.add(map);
                     }
                 }
