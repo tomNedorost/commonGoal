@@ -1,4 +1,4 @@
-﻿package com.example.myapplication;
+package com.example.myapplication;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,7 +23,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private String loc;
     private String seats;
     private String via;
-    
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -92,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void setHomeListView() {
         listView.setAdapter(new gamesAdapter(this,
-                new String[] {"Sonntag 24.02.2019", "Samstag 09.03.2019", "Montag 18.03.2019", "Sonntag 05.04.2019", "Sonntag 21.04.2019", "Sonntag 05.05.2019",
-                "Sonntag 19.05.2019" },
-                new String[] { "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg" },
-                new String[] { "HSV", "MSV Duisburg", "Greuther Fürth", "Bochum", "FC Magdeburg", "FC Erzgebirge", "SV Sandhausen" }
+                new String[]{"Sonntag 24.02.2019", "Samstag 09.03.2019", "Montag 18.03.2019", "Sonntag 05.04.2019", "Sonntag 21.04.2019", "Sonntag 05.05.2019",
+                        "Sonntag 19.05.2019"},
+                new String[]{"Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg", "Jahn Regensburg"},
+                new String[]{"HSV", "MSV Duisburg", "Greuther Fürth", "Bochum", "FC Magdeburg", "FC Erzgebirge", "SV Sandhausen"}
                 //, new int[] {R.drawable.hamburger1, R.drawable.duisburg1, R.drawable.greutherfurth1, R.drawable.bochum1, R.drawable.magdeburg1, R.drawable.erzgebirge1, R.drawable.sandhausen1}
-                ));
+        ));
     }
 
     public void setMyRides() {
@@ -152,16 +151,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-        protected void onPostExecute(String result) {
-            pDialog.dismiss();
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    for (int i = 0; i < driverList.size(); i++) {
-                        Log.i("Driver", String.valueOf(driverList.get(i)));
-                    }
+    protected void onPostExecute(String result) {
+        pDialog.dismiss();
+        runOnUiThread(new Runnable() {
+            public void run() {
+                for (int i = 0; i < driverList.size(); i++) {
+                    Log.i("Driver", String.valueOf(driverList.get(i)));
                 }
-            });
-        }
-
+            }
+        });
     }
 }
