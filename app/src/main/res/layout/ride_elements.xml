@@ -38,56 +38,62 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="right">
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:numStars="4"
-            android:stepSize="1" />
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/test"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/button1"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="171dp"
+                android:layout_marginTop="15dp"
+                android:isIndicator="false"
+                android:numStars="4"
+                android:rating="1"
+                android:stepSize="1"
+                android:visibility="visible" />
 
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/riderProfile"
-            android:layout_marginHorizontal="10dp"
-            android:layout_toRightOf="@id/ratingBar">
-
-            <ImageView
-                android:id="@+id/riderPicture"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                app:srcCompat="@drawable/avatar" />
-
-            <TextView
-                android:id="@+id/riderName"
+            <LinearLayout
+                android:id="@+id/riderProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/riderPicture"
-                android:layout_alignStart="@+id/riderProfile"
-                android:text="Lena, 22" />
+                android:layout_marginHorizontal="10dp"
+                android:layout_toRightOf="@id/ratingBar"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/riderPicture"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/avatar" />
+
+                <TextView
+                    android:id="@+id/riderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/riderPicture"
+                    android:layout_alignStart="@+id/riderProfile"
+                    android:text="Lena, 22" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="91dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@id/riderProfile"
-            android:background="@drawable/buttons"
-            android:padding="10dp"
-            android:text="@string/anfragen"
-            android:textColor="#ffffff" />
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="91dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/riderProfile"
+                android:background="@drawable/buttons"
+                android:padding="10dp"
+                android:text="@string/anfragen"
+                android:textColor="#ffffff" />
 
             /*android:id="@+id/requestButton"
             style="@android:style/Widget.Holo.Button.Borderless"
