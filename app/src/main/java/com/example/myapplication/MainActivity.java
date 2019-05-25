@@ -19,8 +19,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.snapchat.kit.sdk.SnapLogin;
-import com.snapchat.kit.sdk.core.controller.LoginStateController;
+//import com.snapchat.kit.sdk.SnapLogin;
+//import com.snapchat.kit.sdk.core.controller.LoginStateController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
