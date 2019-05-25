@@ -11,11 +11,9 @@
         android:roundIcon="@drawable/jahn_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".NewRide"></activity>
-
-        <activity android:name=".RideListActivity"></activity>
-
+        <activity android:name=".request"></activity>
+        <activity android:name=".NewRide" />
+        <activity android:name=".RideListActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

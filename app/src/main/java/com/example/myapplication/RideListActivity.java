@@ -20,6 +20,10 @@ public class RideListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         depPlace = new ArrayList<String>();
         depTime = new ArrayList<String>();
+        depPlace.add("Pentling");
+        depTime.add("15:30");
+        depPlace.add("Thalmassing");
+        depTime.add("18:45");
         setContentView(R.layout.activity_ride_list);
         listView = (ListView) findViewById(R.id.rideList);
         setRideList();
@@ -42,12 +46,6 @@ public class RideListActivity extends AppCompatActivity {
             depPlace.add(departure);
             listView.setAdapter(new rideAdapter(this, depTime, depPlace));
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setRideList();
     }
 
     public void setRideList() {
