@@ -18,6 +18,14 @@
         android:layout_marginTop="70dp">
     </ListView>
 
+    <ImageView
+        android:id="@+id/backgroundTable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/listview"
+        android:src="@drawable/table"
+        android:layout_marginTop="75dp"/>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_view"
@@ -25,8 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:itemTextColor="#fff"
-        app:itemIconTint="#FFFFFFFF"
         android:background="#3a3a3a"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

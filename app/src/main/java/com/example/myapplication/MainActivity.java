@@ -15,6 +15,7 @@ import android.view.View;
 
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> driverList;
 
     private TextView mTextMessage;
-    public ListView listView, ridesList;
+    public ListView listView, ridesList, tableList;
     private TabLayout tabLayout;
+    private ImageView tableImage;
     private ViewPager viewPager;
     private String driverDate;
     private String loc;
@@ -60,15 +62,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    listView.setVisibility(View.VISIBLE);
+                    tableImage.setVisibility(View.INVISIBLE);
                     setHomeListView();
                     return true;
                 case R.id.navigation_tabel:
-                    listView.setVisibility(View.GONE);
-                    new FetchDriversAsyncTask().execute();
+                    //new FetchDriversAsyncTask().execute();
+                    tableImage.setVisibility(View.VISIBLE);
+                    setTableView();
                     return true;
                 case R.id.navigation_myRides:
-                    listView.setVisibility(View.VISIBLE);
+                    tableImage.setVisibility(View.INVISIBLE);
                     setMyRides();
                     return true;
             }
@@ -84,8 +87,10 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         listView = (ListView) findViewById(R.id.listview);
-        setHomeListView();
+        tableImage = (ImageView) findViewById(R.id.backgroundTable);
+        tableImage.setVisibility(View.INVISIBLE);
 
+        setHomeListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView adapterView, View view, int i, long l) {
@@ -148,6 +153,12 @@ public class MainActivity extends AppCompatActivity {
         depPlace.add("Pentling");
         ridesList = (ListView) findViewById(R.id.listview);
         listView.setAdapter(new rideAdapter(this, depTime, depPlace));
+    }
+
+    public void setTableView() {
+        tableList = (ListView) findViewById(R.id.listview);
+        tableList.setAdapter(new tableAdapter(this));
+
     }
 
     private class FetchDriversAsyncTask extends AsyncTask<String, String, String> {
