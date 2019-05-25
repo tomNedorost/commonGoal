@@ -1,5 +1,6 @@
 package com.example.myapplication;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,10 +13,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.snapchat.kit.sdk.SnapLogin;
+import com.snapchat.kit.sdk.core.controller.LoginStateController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +27,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static java.security.AccessController.getContext;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -87,6 +93,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*View mLoginButton = SnapLogin.getButton(this.getApplicationContext(), listView);
+
+        View yourView = findViewById(R.id.listview);
+        yourView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SnapLogin.getAuthTokenManager(v.getContext()).startTokenGrant();
+            }
+        });
+        final LoginStateController.OnLoginStateChangedListener mLoginStateChangedListener =
+                new LoginStateController.OnLoginStateChangedListener() {
+                    @Override
+                    public void onLoginSucceeded() {
+                        // Here you could update UI to show login success
+                    }
+
+                    @Override
+                    public void onLoginFailed() {
+                        // Here you could update UI to show login failure
+                    }
+
+                    @Override
+                    public void onLogout() {
+                        // Here you could update UI to reflect logged out state
+                    }
+                };
+
+        // Add the LoginStateChangedListener you’ve defined to receive LoginInState updates
+       // SnapLogin.getLoginStateController(getContext()).addOnLoginStateListener(mLoginStateChangedListener);
+        //To unsubscribe your `LoginStateChangedListener` from updates, use the following line:
+        //SnapLogin.getLoginStateController(this).removeOnLoginStateChangedListener(mLoginStateChangedListener);
+        */
     }
 
     public void setHomeListView() {

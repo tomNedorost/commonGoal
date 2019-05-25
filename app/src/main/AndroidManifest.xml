@@ -11,6 +11,9 @@
         android:roundIcon="@drawable/jahn_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="your app’s client id" />
+        <meta-data android:name="com.snapchat.kit.sdk.redirectUrl" android:value="the url that will handle login completion" />
+        <meta-data android:name="com.snapchat.kit.sdk.scopes" android:resource="@array/snap_connect_scopes" /> <!-- This should be a string array of scopes !-->
         <activity android:name=".request"></activity>
         <activity android:name=".NewRide" />
         <activity android:name=".RideListActivity" />
