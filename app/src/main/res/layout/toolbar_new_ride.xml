@@ -18,7 +18,7 @@
         android:textColor="#fff"
         android:textAlignment="center"
         android:text="Neue Fahrt hinzufügen"
-        android:textSize="80px"
+        android:textSize="70px"
         android:layout_marginLeft="40dp"
         android:fontFamily="sans-serif-smallcaps"/>
 
