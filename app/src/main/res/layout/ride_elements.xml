@@ -19,11 +19,11 @@
             android:id="@+id/rideTexts">
 
             <TextView
+                android:id="@+id/rideTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rideTime"
                 android:layout_margin="5dp"
-                android:text="Freitag 26.06.2019"/>
+                android:text="Freitag 26.06.2019" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,12 +44,11 @@
         <RatingBar
             android:id="@+id/ratingBar"
             style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:numStars="4"
-            android:stepSize="1"
-            android:layout_centerVertical="true"
-            android:layout_margin="5dp" />
+            android:stepSize="1" />
+
 
 
         <LinearLayout
@@ -79,12 +78,23 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/requestButton"
+            android:id="@+id/button1"
+            android:layout_width="91dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/riderProfile"
+            android:background="@drawable/buttons"
+            android:padding="10dp"
+            android:text="@string/anfragen"
+            android:textColor="#ffffff" />
+
+            /*android:id="@+id/requestButton"
             style="@android:style/Widget.Holo.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/riderProfile"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimary"*/
             android:text="Anfragen" />
 
         </RelativeLayout>
