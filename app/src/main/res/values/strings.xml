@@ -3,6 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Tabelle</string>
     <string name="title_notifications">Meine Fahrten</string>
+    <string name="passengers_number">Wie viele Plätze hast du frei?</string>
+    <string name="departure_time">Um wie viel Uhr fährst du los?</string>
+    <string name="departure_place">Wo fährst du los?</string>
+    <string name="add_stop">Zwischenstopp einfügen</string>
+    <string name="add">+</string>
+    <string name="add_comment">Kommentar hinzufügen</string>
+    <string name="title_activity_new_ride">NewRide</string>
+    <string name="stophint">Zwischenstopp hinzufügen</string>
     <string name="start">Start</string>
 
     <!-- TODO: Remove or change this placeholder text -->
