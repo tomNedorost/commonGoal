@@ -9,14 +9,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-import java.util.ArrayList;
-
 public class rideAdapter extends BaseAdapter {
     Context context;
-    ArrayList<String> rideTime, ridePlace;
+    String[] rideTime, ridePlace;
     private static LayoutInflater inflater = null;
 
-    public rideAdapter(Context context, ArrayList<String> rideTime, ArrayList<String> ridePlace) {
+    public rideAdapter(Context context, String[] rideTime, String[] ridePlace) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.rideTime = rideTime;
@@ -28,13 +26,13 @@ public class rideAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return ridePlace.size();
+        return ridePlace.length;
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return ridePlace.get(position);
+        return ridePlace[position];
     }
 
     @Override
@@ -51,8 +49,8 @@ public class rideAdapter extends BaseAdapter {
             vi = inflater.inflate(R.layout.ride_elements, null);
         TextView rideTimeText = (TextView) vi.findViewById(R.id.rideTime);
         TextView ridePlaceText = (TextView) vi.findViewById(R.id.ridePlace);
-        rideTimeText.setText(rideTime.get(position));
-        ridePlaceText.setText(ridePlace.get(position));
+        rideTimeText.setText(rideTime[position]);
+        ridePlaceText.setText(ridePlace[position]);
         return vi;
     }
 }

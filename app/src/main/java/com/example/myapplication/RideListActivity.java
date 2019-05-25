@@ -1,56 +1,22 @@
 package com.example.myapplication;
 
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
-
-import java.util.ArrayList;
 
 public class RideListActivity extends AppCompatActivity {
     ListView listView;
-    private FloatingActionButton addButton;
-    ArrayList<String> depTime;
-    ArrayList<String> depPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        depPlace = new ArrayList<String>();
-        depTime = new ArrayList<String>();
         setContentView(R.layout.activity_ride_list);
         listView = (ListView) findViewById(R.id.rideList);
-        setRideList();
-        addButton = findViewById(R.id.add);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewRide.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0 && resultCode == RideListActivity.RESULT_OK){
-            String time = data.getStringExtra("time");
-            String departure = data.getStringExtra("departure");
-            depTime.add(time);
-            depPlace.add(departure);
-            listView.setAdapter(new rideAdapter(this, depTime, depPlace));
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         setRideList();
     }
 
     public void setRideList() {
-        listView.setAdapter(new rideAdapter(this, depTime, depPlace));
+        listView.setAdapter(new rideAdapter(this, new String[] { "14:30",
+                "16:00" }, new String[] { "Neutraubling", "Pentling" }));
     }
 }
