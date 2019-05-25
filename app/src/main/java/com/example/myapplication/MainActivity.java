@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_myRides:
                     listView.setVisibility(View.VISIBLE);
-                    setMyRides();
+                    //setMyRides();
                     return true;
             }
             return false;
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 ));
     }
 
-    public void setMyRides() {
-        ridesList = (ListView) findViewById(R.id.listview);
-        ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
-                "16:00" }, new String[] { "Neutraubling", "Pentling" }));
-    }
+    //public void setMyRides() {
+      //  ridesList = (ListView) findViewById(R.id.listview);
+        //ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
+          //      "16:00" }, new String[] { "Neutraubling", "Pentling" }));
+    //}
 }
