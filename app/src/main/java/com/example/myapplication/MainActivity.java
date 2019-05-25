@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,13 +22,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_SUCCESS = "success";
     private static final String KEY_DATA = "data";
     private static final String KEY_DRIVER_ID = "id";
-    private static final String KEY_DRIVER_NAME = "date";
+    private static final String KEY_LOC = "loc";
+    private static final String KEY_VIA = "via";
+    private static final String KEY_SEATS = "seats";
+    private static final String KEY_DRIVER_DATE = "date";
     private static final String BASE_URL = "http://172.16.29.109:80/drivers/";
     private ArrayList<HashMap<String, String>> driverList;
 
@@ -36,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private String driverDate;
+    private String loc;
+    private String seats;
+    private String via;
     
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -90,12 +99,13 @@ public class MainActivity extends AppCompatActivity {
                 ));
     }
 
+    /**
     public void setMyRides() {
         ridesList = (ListView) findViewById(R.id.listview);
         ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
                 "16:00" }, new String[] { "Neutraubling", "Pentling" }));
     }
-
+    */
     /**
      * Fetches the list of movies from the server
      */
@@ -120,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < drivers.length(); i++) {
                         JSONObject driver = drivers.getJSONObject(i);
                         Integer driverId = driver.getInt(KEY_DRIVER_ID);
-                        String driverDate = driver.getString(KEY_DRIVER_NAME);
+                        String driverDate = driver.getString(KEY_DRIVER_DATE);
                         HashMap<String, String> map = new HashMap<String, String>();
                         map.put(KEY_DRIVER_ID, driverId.toString());
-                        map.put(KEY_DRIVER_NAME, driverDate);
+                        map.put(KEY_DRIVER_DATE, driverDate);
                         driverList.add(map);
                     }
                 }
@@ -134,4 +144,78 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    /**
+     * Checks whether all files are filled. If so then calls AddMovieAsyncTask.
+     * Otherwise displays Toast message informing one or more fields left empty
+     */
+    private void addMovie() {
+        // TODO: vor .get die jeweiligen infos aus der activity holen
+        if (!STRING_EMPTY.equals(.getText().toString()) &&
+                !STRING_EMPTY.equals(.getText().toString()) &&
+                !STRING_EMPTY.equals(.getText().toString()) &&
+                !STRING_EMPTY.equals(.getText().toString())) {
+
+            driverDate = .getText().toString();
+            via = .getText().toString();
+            loc = .getText().toString();
+            seats = .getText().toString();
+            new AddMovieAsyncTask().execute();
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "One or more fields left empty!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+    /**
+     * AsyncTask for adding a movie
+     */
+    private class AddMovieAsyncTask extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            HttpJsonParser httpJsonParser = new HttpJsonParser();
+            Map<String, String> httpParams = new HashMap<>();
+            //Populating request parameters
+            httpParams.put(KEY_DRIVER_DATE, date);
+            httpParams.put(KEY_LOC, genre);
+            httpParams.put(KEY_VIA, year);
+            httpParams.put(KEY_SEATS, rating);
+            JSONObject jsonObject = httpJsonParser.makeHttpRequest(
+                    BASE_URL + "add_movie.php", "POST", httpParams);
+            try {
+                success = jsonObject.getInt(KEY_SUCCESS);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void onPostExecute(String result) {
+            pDialog.dismiss();
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    if (success == 1) {
+                        //Display success message
+                        Toast.makeText(AddMovieActivity.this,
+                                "Movie Added", Toast.LENGTH_LONG).show();
+                        Intent i = getIntent();
+                        //send result code 20 to notify about movie update
+                        setResult(20, i);
+                        //Finish ths activity and go back to listing activity
+                        finish();
+
+                    } else {
+                        Toast.makeText(AddMovieActivity.this,
+                                "Some error occurred while adding movie",
+                                Toast.LENGTH_LONG).show();
+
+                    }
+                }
+            });
+        }
 }
