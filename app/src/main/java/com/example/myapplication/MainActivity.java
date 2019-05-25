@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_myRides:
                     listView.setVisibility(View.VISIBLE);
-                    //setMyRides();
+                    setMyRides();
                     return true;
             }
             return false;
@@ -99,13 +99,16 @@ public class MainActivity extends AppCompatActivity {
                 ));
     }
 
-    /**
     public void setMyRides() {
-        ridesList = (ListView) findViewById(R.id.listview);
-        ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
-                "16:00" }, new String[] { "Neutraubling", "Pentling" }));
+         ArrayList<String> depTime = new ArrayList<String>();
+         depTime.add("14:30");
+         depTime.add("16:00");
+         ArrayList<String> depPlace = new ArrayList<String>();
+         depPlace.add("Neutraubling");
+         depPlace.add("Pentling");
+         ridesList = (ListView) findViewById(R.id.listview);
+         listView.setAdapter(new rideAdapter(this, depTime, depPlace));
     }
-    */
     /**
      * Fetches the list of movies from the server
      */
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
      * Checks whether all files are filled. If so then calls AddMovieAsyncTask.
      * Otherwise displays Toast message informing one or more fields left empty
      */
-    private void addMovie() {
+   /* private void addMovie() {
         // TODO: vor .get die jeweiligen infos aus der activity holen
         if (!STRING_EMPTY.equals(.getText().toString()) &&
                 !STRING_EMPTY.equals(.getText().toString()) &&
@@ -169,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
     /**
      * AsyncTask for adding a movie
-     */
+
     private class AddMovieAsyncTask extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
@@ -218,4 +221,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        */
 }
