@@ -4,8 +4,15 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ToolbarWidgetWrapper;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -20,6 +27,10 @@ public class RideListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         depPlace = new ArrayList<String>();
         depTime = new ArrayList<String>();
+        depPlace.add("Pentling");
+        depTime.add("15:30");
+        depPlace.add("Thalmassing");
+        depTime.add("18:45");
         setContentView(R.layout.activity_ride_list);
         listView = (ListView) findViewById(R.id.rideList);
         setRideList();
@@ -42,12 +53,6 @@ public class RideListActivity extends AppCompatActivity {
             depPlace.add(departure);
             listView.setAdapter(new rideAdapter(this, depTime, depPlace));
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setRideList();
     }
 
     public void setRideList() {

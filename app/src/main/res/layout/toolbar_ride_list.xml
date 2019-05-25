@@ -17,7 +17,7 @@
         android:layout_marginTop="22dp"
         android:textColor="#fff"
         android:textAlignment="center"
-        android:text="SSV Jahn"
+        android:text="Angebotene Fahrten"
         android:textSize="80px"
         android:layout_marginLeft="40dp"
         android:fontFamily="sans-serif-smallcaps"/>
@@ -29,6 +29,13 @@
         android:gravity="right"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="right"
+            android:id="@+id/backButton"
+            android:src="@drawable/ic_arrow_back"/>
 
 
     </RelativeLayout>
