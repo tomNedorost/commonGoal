@@ -17,7 +17,7 @@
         android:layout_marginTop="22dp"
         android:textColor="#fff"
         android:textAlignment="center"
-        android:text="SSV Jahn"
+        android:text="Deine Anfrage"
         android:textSize="80px"
         android:layout_marginLeft="40dp"
         android:fontFamily="sans-serif-smallcaps"/>

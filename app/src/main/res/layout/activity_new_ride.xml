@@ -11,7 +11,7 @@
     android:id="@+id/new_ride"
     tools:context=".NewRide">
 
-    <include layout="@layout/toolbar_with_arrow"
+    <include layout="@layout/toolbar_new_ride"
         android:id="@+id/toolbar"></include>
 
     <TextView
