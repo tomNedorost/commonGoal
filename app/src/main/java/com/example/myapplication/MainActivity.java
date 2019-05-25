@@ -149,16 +149,15 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-    }
-
-    protected void onPostExecute(String result) {
-        pDialog.dismiss();
-        runOnUiThread(new Runnable() {
-            public void run() {
-                for (int i = 0; i < driverList.size(); i++) {
-                    Log.i("Driver", String.valueOf(driverList.get(i)));
+        protected void onPostExecute(String result) {
+            pDialog.dismiss();
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    for (int i = 0; i < driverList.size(); i++) {
+                        Log.i("Driver", String.valueOf(driverList.get(i)));
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 }
