@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 
@@ -17,7 +19,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
-    public ListView listView;
+    public ListView listView, ridesList;
+    private TabAdapter adapter;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -26,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //listView.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.VISIBLE);
                     setHomeListView();
                     return true;
                 case R.id.navigation_tabel:
-                    //listView.setVisibility(View.GONE);
+                    listView.setVisibility(View.GONE);
                     return true;
                 case R.id.navigation_myRides:
+                    listView.setVisibility(View.VISIBLE);
+                    setMyRides();
                     return true;
             }
             return false;
@@ -68,5 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 new String[] { "HSV", "MSV Duisburg", "Greuther Fürth", "Bochum", "FC Magdeburg", "FC Erzgebirge", "SV Sandhausen" }
                 //, new int[] {R.drawable.hamburger1, R.drawable.duisburg1, R.drawable.greutherfurth1, R.drawable.bochum1, R.drawable.magdeburg1, R.drawable.erzgebirge1, R.drawable.sandhausen1}
                 ));
+    }
+
+    public void setMyRides() {
+        ridesList = (ListView) findViewById(R.id.listview);
+        ridesList.setAdapter(new rideAdapter(this, new String[] { "14:30",
+                "16:00" }, new String[] { "Neutraubling", "Pentling" }));
     }
 }

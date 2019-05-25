@@ -88,7 +88,7 @@
         android:id="@+id/checkBox"
         android:layout_width="365dp"
         android:layout_height="41dp"
-        android:text="Ganze Strecke setzen"
+        android:text="Ganze Strecke zeigen"
         tools:layout_editor_absoluteX="15dp"
         tools:layout_editor_absoluteY="296dp"
         tools:ignore="MissingConstraints" />
