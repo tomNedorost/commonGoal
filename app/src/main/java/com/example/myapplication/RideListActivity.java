@@ -21,7 +21,6 @@ public class RideListActivity extends AppCompatActivity {
     private FloatingActionButton addButton;
     ArrayList<String> depTime;
     ArrayList<String> depPlace;
-    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +40,6 @@ public class RideListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), NewRide.class);
                 startActivityForResult(intent, 0);
-            }
-        });
-        android.support.v7.widget.Toolbar navLayout = (android.support.v7.widget.Toolbar) View.inflate(this, R.layout.toolbar_with_arrow, null);
-        backButton = navLayout.findViewById(R.id.backButton);
-        //geht nicht
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Log.v("test", "click");
             }
         });
     }
