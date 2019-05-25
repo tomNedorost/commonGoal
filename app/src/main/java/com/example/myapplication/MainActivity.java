@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     public ListView listView, ridesList;
-    private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private String driverDate;
@@ -148,80 +147,4 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
-    /**
-     * Checks whether all files are filled. If so then calls AddMovieAsyncTask.
-     * Otherwise displays Toast message informing one or more fields left empty
-     */
-    /*
-    private void addMovie() {
-        // TODO: vor .get die jeweiligen infos aus der activity holen
-        if (!STRING_EMPTY.equals(.getText().toString()) &&
-                !STRING_EMPTY.equals(.getText().toString()) &&
-                !STRING_EMPTY.equals(.getText().toString()) &&
-                !STRING_EMPTY.equals(.getText().toString())) {
-
-            driverDate = .getText().toString();
-            via = .getText().toString();
-            loc = .getText().toString();
-            seats = .getText().toString();
-            new AddMovieAsyncTask().execute();
-        } else {
-            Toast.makeText(getApplicationContext(),
-                    "One or more fields left empty!",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
-    /**
-     * AsyncTask for adding a movie
-
-    private class AddMovieAsyncTask extends AsyncTask<String, String, String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            HttpJsonParser httpJsonParser = new HttpJsonParser();
-            Map<String, String> httpParams = new HashMap<>();
-            //Populating request parameters
-            httpParams.put(KEY_DRIVER_DATE, date);
-            httpParams.put(KEY_LOC, genre);
-            httpParams.put(KEY_VIA, year);
-            httpParams.put(KEY_SEATS, rating);
-            JSONObject jsonObject = httpJsonParser.makeHttpRequest(
-                    BASE_URL + "add_movie.php", "POST", httpParams);
-            try {
-                success = jsonObject.getInt(KEY_SUCCESS);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        protected void onPostExecute(String result) {
-            pDialog.dismiss();
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    if (success == 1) {
-                        //Display success message
-                        Toast.makeText(AddMovieActivity.this,
-                                "Movie Added", Toast.LENGTH_LONG).show();
-                        Intent i = getIntent();
-                        //send result code 20 to notify about movie update
-                        setResult(20, i);
-                        //Finish ths activity and go back to listing activity
-                        finish();
-
-                    } else {
-                        Toast.makeText(AddMovieActivity.this,
-                                "Some error occurred while adding movie",
-                                Toast.LENGTH_LONG).show();
-
-                    }
-                }
-            });
-        }
-        */
 }
