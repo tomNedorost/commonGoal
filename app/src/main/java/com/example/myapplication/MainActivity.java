@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         ridesList = (ListView) findViewById(R.id.listview);
         listView.setAdapter(new rideAdapter(this, depTime, depPlace));
     }
-    */
 
     private class FetchDriversAsyncTask extends AsyncTask<String, String, String> {
         @Override
